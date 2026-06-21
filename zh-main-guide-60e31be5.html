@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>南宫28 · 简明访问指南</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background-color: #f5f3ef;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      line-height: 1.6;
+      color: #2c2b28;
+    }
+
+    /* hero – 深色头图 */
+    .hero {
+      background: linear-gradient(145deg, #1f1e1b 0%, #2d2a25 100%);
+      color: #ece9e0;
+      padding: 5rem 1.5rem 3.5rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      background: #f5f3ef;
+      clip-path: ellipse(70% 100% at 50% 100%);
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero h1 span {
+      color: #f0c27f;
+    }
+
+    .hero p {
+      max-width: 640px;
+      margin: 0 auto 2rem;
+      font-size: 1.1rem;
+      opacity: 0.88;
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    .hero .tagline {
+      background: rgba(240, 194, 127, 0.12);
+      display: inline-block;
+      padding: 0.4rem 1.4rem;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      color: #f0c27f;
+      border: 1px solid rgba(240, 194, 127, 0.25);
+      backdrop-filter: blur(2px);
+    }
+
+    /* 通用容器 */
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* 优势 / 特点卡片区 */
+    .features {
+      padding: 4rem 0 2rem;
+    }
+
+    .features h2 {
+      font-size: 1.9rem;
+      font-weight: 450;
+      margin-bottom: 2.2rem;
+      color: #302e29;
+      border-left: 5px solid #c9a96e;
+      padding-left: 1rem;
+    }
+
+    .grid-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.8rem;
+      margin-bottom: 2rem;
+    }
+
+    .card {
+      background: white;
+      border-radius: 18px;
+      padding: 1.8rem 1.4rem;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.03), 0 2px 6px rgba(0, 0, 0, 0.04);
+      transition: transform 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+    }
+
+    .card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.8rem;
+      font-weight: 500;
+      color: #3b3832;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #4f4b44;
+      line-height: 1.6;
+    }
+
+    .card .icon-deco {
+      font-size: 1.8rem;
+      display: block;
+      margin-bottom: 0.8rem;
+      opacity: 0.7;
+    }
+
+    /* 说明区 — 简明指南 */
+    .guide-section {
+      background: white;
+      border-radius: 28px 28px 0 0;
+      padding: 3.2rem 1.5rem 3rem;
+      margin: 0 -1.5rem;
+    }
+
+    .guide-inner {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .guide-section h2 {
+      font-size: 1.9rem;
+      font-weight: 450;
+      color: #302e29;
+      margin-bottom: 1.8rem;
+      letter-spacing: -0.01em;
+    }
+
+    .guide-section p, .guide-section li {
+      color: #3f3c36;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    .guide-section ul {
+      list-style: none;
+      padding: 0;
+      margin: 1.8rem 0;
+    }
+
+    .guide-section li {
+      padding: 0.7rem 0 0.7rem 2rem;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%23c9a96e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>') left center no-repeat;
+      background-size: 18px;
+      margin-bottom: 0.2rem;
+    }
+
+    .guide-section .reminder {
+      background: #f7f3ea;
+      padding: 1.4rem 1.8rem;
+      border-radius: 20px;
+      margin-top: 2rem;
+      border-left: 4px solid #c9a96e;
+    }
+
+    /* FAQ 摘要 */
+    .faq-summary {
+      padding: 3rem 0 2.5rem;
+    }
+
+    .faq-summary h2 {
+      font-size: 1.6rem;
+      font-weight: 450;
+      margin-bottom: 1.6rem;
+      color: #302e29;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid #e2ddd4;
+      padding: 1rem 0;
+    }
+
+    .faq-question {
+      font-weight: 500;
+      font-size: 1.1rem;
+      color: #3b3832;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: default;
+    }
+
+    .faq-question::after {
+      content: '+';
+      font-size: 1.4rem;
+      color: #b8a989;
+      font-weight: 300;
+    }
+
+    .faq-answer {
+      margin-top: 0.5rem;
+      color: #5a554c;
+      font-size: 0.95rem;
+      padding-right: 1.5rem;
+      line-height: 1.6;
+    }
+
+    /* 底部链接 */
+    .footer-links {
+      background: #2d2a25;
+      color: #cdc8bc;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .footer-links a {
+      color: #f0c27f;
+      text-decoration: none;
+      font-weight: 450;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: #fadc9f;
+      text-decoration: underline;
+    }
+
+    .footer-links p {
+      max-width: 600px;
+      margin: 0.6rem auto;
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    .footer-links .small-note {
+      font-size: 0.8rem;
+      opacity: 0.6;
+      margin-top: 0.8rem;
+    }
+
+    /* 响应式 */
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 2rem; }
+      .hero { padding: 3.5rem 1rem 2.8rem; }
+      .grid-cards { grid-template-columns: 1fr; }
+      .guide-section { padding-left: 1rem; padding-right: 1rem; }
+      .faq-question { font-size: 1rem; }
+    }
+
+    @media (min-width: 768px) {
+      .hero h1 { font-size: 3.3rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- hero 区 -->
+  <header class="hero">
+    <div class="container">
+      <div class="tagline">简明指南 · 日常访问提醒</div>
+      <h1>找到 <span>南宫28</span> 的稳妥方式</h1>
+      <p>日常访问中，你可能会遇到链接变动或页面加载的细微差别。我们整理了一份轻量级指南，帮助你更顺畅地使用。</p>
+    </div>
+  </header>
+
+  <!-- 优势 / 特点区 -->
+  <section class="features">
+    <div class="container">
+      <h2>为什么留意这些细节？</h2>
+      <div class="grid-cards">
+        <div class="card">
+          <span class="icon-deco">🧭</span>
+          <h3>入口常新</h3>
+          <p>网络环境在变，保持对最新地址的感知，能省去反复查找的麻烦。</p>
+        </div>
+        <div class="card">
+          <span class="icon-deco">⚙️</span>
+          <h3>轻量习惯</h3>
+          <p>收藏一个可靠的跳转页面，比每次手动搜索更安心，也更节省时间。</p>
+        </div>
+        <div class="card">
+          <span class="icon-deco">📌</span>
+          <h3>少走弯路</h3>
+          <p>了解常见访问提示的含义，就能避免因页面微小差异而错认站点。</p>
+        </div>
+        <div class="card">
+          <span class="icon-deco">🔐</span>
+          <h3>保持判断</h3>
+          <p>任何要求异常权限或个人信息的页面，都应谨慎对待。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 说明区 · 简明指南 -->
+  <section class="guide-section">
+    <div class="guide-inner">
+      <h2>日常访问简明指南</h2>
+      <p>如果你正在寻找 <a href="https://zh-main-nangong28.com" style="color:#a07d4f; font-weight:500; text-decoration:underline;">南宫28</a> 的访问入口，下面这几个经验或许能帮到你。多数情况下，通过一个固定的书签页起步是最直接的办法。</p>
+      <ul>
+        <li><strong>先确认链接有效性</strong> —— 网络波动可能导致页面短时不可用，稍后重试通常就能解决。</li>
+        <li><strong>留意页面布局细节</strong> —— 熟悉页面的配色、版块位置，有助于快速辨别是否为原站点。</li>
+        <li><strong>不要轻信第三方推广</strong> —— 使用前尽量通过自己保存的地址或可信渠道核对。</li>
+        <li><strong>遇到提示先读内容</strong> —— 很多访问障碍其实是浏览器安全拦截或区域限制，仔细阅读提示文字再操作。</li>
+      </ul>
+      <div class="reminder">
+        <p style="font-weight:500; margin-bottom:0.4rem;">📎 一个简单的提醒</p>
+        <p>如果你希望每次都能快速定位到 <a href="https://zh-main-nangong28.com" style="color:#a07d4f; font-weight:500; text-decoration:underline;">南宫28</a>，可以考虑把这个页面添加到浏览器书签。当需要访问时，先打开这里，再从页面上的链接跳转，能减少输错地址的可能。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ 摘要 -->
+  <section class="faq-summary container">
+    <h2>你可能想了解的</h2>
+    <div class="faq-item">
+      <div class="faq-question">页面打不开是什么原因？</div>
+      <div class="faq-answer">最常见的情况是网络环境临时波动，或浏览器缓存冲突。可以尝试刷新、切换网络，或使用无痕窗口重新加载。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">我该怎样记住正确的地址？</div>
+      <div class="faq-answer">把当前这个介绍页收藏起来，每次需要时从页面中点击 <a href="https://zh-main-nangong28.com" style="color:#a07d4f; text-decoration:underline;">南宫28</a> 直接跳转，简单又不容易出错。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">页面内容会频繁变化吗？</div>
+      <div class="faq-answer">网站本身保持相对稳定，但出于安全和访问效率考虑，部分入口或引导信息可能会根据网络状况微调。</div>
+    </div>
+  </section>
+
+  <!-- 底部链接 -->
+  <footer class="footer-links">
+    <p>日常访问入口 · <a href="https://zh-main-nangong28.com">南宫28</a></p>
+    <p>本页面仅提供信息参考与访问指引，不承担外部链接的内容责任。</p>
+    <p class="small-note">保持平常心，享受数字生活的便捷。</p>
+  </footer>
+
+</body>
+</html>
